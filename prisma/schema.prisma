@@ -1,0 +1,108 @@
+// Define a conexão com MySQL no .env
+// DATABASE_URL="mysql://USER:PASSWORD@localhost:3306/tempero_web"
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  //url      = env("DATABASE_URL")
+}
+
+// Usuários (NextAuth)
+model User {
+  id            String    @id @default(cuid())
+  name          String?
+  email         String    @unique
+  emailVerified DateTime?
+  password      String?
+  image         String?
+  createdAt     DateTime  @default(now())
+  accounts      Account[]
+  sessions      Session[]
+  recipes       Recipe[]
+  favorites     Favorite[]
+  reviews       Review[]
+}
+
+// NextAuth Account
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@unique([provider, providerAccountId])
+}
+
+// NextAuth Session
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+
+  user User @relation(fields: [userId], references: [id])
+}
+
+// NextAuth Verification Tokens
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// Receitas
+model Recipe {
+  id           String     @id @default(cuid())
+  title        String
+  slug         String     @unique // Adicionado para SEO
+  description  String?    @db.Text
+  ingredients  Json       // [ { "item": "ovo", "amount": "2" } ]
+  instructions String     @db.Text // Use @db.Text para textos longos no MySQL
+  prepTime     Int?       // Tempo em minutos
+  difficulty   String?    // Fácil, Médio, Difícil
+  category     String?    // Sobremesa, Almoço, etc
+  image        String?
+  createdAt    DateTime   @default(now())
+  authorId     String?
+  author       User?      @relation(fields: [authorId], references: [id])
+  favorites    Favorite[]
+  reviews      Review[]
+}
+
+// Favoritos do usuário
+model Favorite {
+  id       String   @id @default(cuid())
+  userId   String
+  recipeId String
+
+  user   User   @relation(fields: [userId], references: [id])
+  recipe Recipe @relation(fields: [recipeId], references: [id])
+}
+
+// Avaliações / Reviews
+model Review {
+  id        String   @id @default(cuid())
+  userId    String
+  recipeId  String
+  rating    Int
+  comment   String?
+  createdAt DateTime @default(now())
+
+  user   User   @relation(fields: [userId], references: [id])
+  recipe Recipe @relation(fields: [recipeId], references: [id])
+}
