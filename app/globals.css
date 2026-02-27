@@ -1,6 +1,32 @@
 @import "tailwindcss";
 
 @theme {
-  /* No v4, você estende o tema assim, mapeando a variável da fonte */
   --font-roboto: var(--font-roboto), ui-sans-serif, system-ui;
+}
+
+::-webkit-scrollbar {
+  width: 6px;              
+}
+
+/* Fundo da barra (Track) */
+::-webkit-scrollbar-track {
+  background: red;      
+  border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #FE7C01;       
+  border-radius: 10px;
+  border: 2px solid #f1f1f1; }
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e66e00; 
+}
+
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #FE7C01 #f1f1f1;
 }

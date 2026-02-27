@@ -16,7 +16,7 @@ export function Tag({
       ? "bg-[#FE7C01] text-white border-[#FE7C01]" 
       : "bg-black text-white border-black hover:bg-transparent hover:text-[#858585] hover:border-[#A2A2A2]!",
     
-    outline:  "bg-transparent text-[#858585] border-[#A2A2A2]! cursor-default!" 
+    outline:  "out bg-transparent text-[#858585] border-[#A2A2A2]! cursor-default!" 
   };
 
   return (

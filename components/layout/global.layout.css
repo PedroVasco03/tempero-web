@@ -4,33 +4,32 @@
     box-sizing: border-box;
 }
 
-.hero {
-    height: 688px;
+section{
     width: 100%;
+    padding: 30px 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 40px;
+}
+
+.hero {
+    min-height: 100dvh;
     background: url('/images/herosection.png') no-repeat center center/cover;
     filter: saturate(150%) brightness(0.9);
 }
 
 .featuredRecipes {
-    width: 100%;
-    height: 100dvh;
-    padding: 30px 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
+    min-height: 100dvh;
     margin: 80px 0;
 }
 
-.cardContainer{
+.cardContainer1{
     width: 100%;
-    height: 893px;
+    min-height: 100dvh;
+    padding: 0 110px;
 }
-
 .textSection{
     display: flex;
     width: 100%;
@@ -39,7 +38,7 @@
     align-items: center;
     justify-content: space-between;
     gap: 16px;
-    padding: 0 20px;
+    padding: 0 80px;
 }
 
 .textSection .text{
@@ -49,3 +48,4 @@
     color: #1e1e1e;
     font-style: Bold;
 }
+
