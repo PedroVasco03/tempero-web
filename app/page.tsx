@@ -1,6 +1,7 @@
 import { FeaturedRecipes } from "@/components/layout/Featuredrecipes";
 import { Hero } from "@/components/layout/Hero";
 import Introduction from "@/components/layout/Introducion";
+import Learn from "@/components/layout/Learn";
 
 export default async function Home() {
   return (
@@ -8,6 +9,7 @@ export default async function Home() {
       <Hero/>
       <FeaturedRecipes/>
       <Introduction/>
+      <Learn/>
     </main>
   );
 }
