@@ -174,3 +174,55 @@ input {
   letter-spacing: 0%;
   color: #858585;
 }
+
+.newsletterInput{
+  width: 744px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  angle: 0 deg;
+  opacity: 1;
+  border-radius: 8px;
+  padding: 4px;
+  background-color: #fff;
+}
+
+.newsletterInput input{
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  padding-left: 20px;
+  angle: 0 deg;
+  opacity: 1;
+  padding-right: 10px;
+}
+
+.terms{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+}
+
+.terms input[type="checkbox"] {
+  width: 21px;
+  height: 21px;
+  border-radius: 2px;
+  border: 1px solid #4E4E4E;
+  cursor: pointer;
+  gap: 10px;
+}
+
+.terms small{
+  font-family: --var(--font-inter);
+  font-weight: 400;
+  font-style: Regular;
+  font-size: 16px;
+  leading-trim: NONE;
+  line-height: 140%;
+  letter-spacing: 0%;
+  color: #F8F8F8;
+}
