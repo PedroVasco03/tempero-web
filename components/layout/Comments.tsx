@@ -1,8 +1,8 @@
 import "./global.layout.css";
 
-export default function Navbar() {
+export default function Comments() {
   return (
-    <section className="navbar">
+    <section className="comments">
         <div className="textSection">
             <h2 className="text-4xl font-bold text-[#1A1A1A] text-center md:text-left">
               Aprenda e bom apetite
