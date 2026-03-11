@@ -1,13 +1,12 @@
 import "./global.layout.css";
 
-export default function Footer() {
+export default function Newsletter() {
   return (
-    <section className="footer">
+    <section className="newsletter">
         <div className="textSection">
             <h2 className="text-4xl font-bold text-[#1A1A1A] text-center md:text-left">
-              Aprenda e bom apetite
+              Newsletter
             </h2>
-            <p>Aprenda a fazer os melhores pratos aqui na TemperoWeb.</p>
         </div>
     </section>
   );
